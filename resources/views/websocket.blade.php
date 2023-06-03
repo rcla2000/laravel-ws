@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>WebSockets</title>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -23,18 +25,11 @@
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
+        const mensaje = document.querySelector('#mensaje');
         Echo.channel('trades').listen('NewTrade', (e) => {
-            const mensaje = document.querySelector('#mensaje');
-            console.log(e.trade);
             mensaje.textContent = e.trade;
         });
     </script>
-    {{-- <script>
-        Echo.private('trades').listenForWhisper('NewTrade', (e) => {
-            const mensaje = document.querySelector('#mensaje');
-            console.log(e.trade);
-            mensaje.textContent = e.trade;
-        });
-    </script> --}}
 </body>
+
 </html>

@@ -23,5 +23,5 @@ Route::get('/agregar-ubicacion-votos', [MapaController::class, 'votosSinGeolocal
 Route::post('/actualizar-voto', [MapaController::class, 'actualizarLtnLng'])->name('actualizar-voto');
 Route::get('/prueba-api', [PruebasController::class, 'pruebaAPI']);
 Route::get('/ws', [WebSocketController::class, 'inicio']);
-Route::get('/ws/generar-evento/{mensaje}', [WebSocketController::class, 'generarEvento']);
+Route::get('/ws/mensaje/{mensaje}', [WebSocketController::class, 'generarEvento']);
 Route::get('/ws/evento', [WebSocketController::class, 'evento']);
